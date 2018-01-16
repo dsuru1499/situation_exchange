@@ -1,0 +1,8 @@
+situation-exchange:
+    version : 2.0:FR-IDF-2.4
+    maxAge : 60
+    participantRef : default
+
+logging:
+    level:
+        org.springframework.data.mongodb.core.ReactiveMongoTemplate: DEBUG

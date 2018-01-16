@@ -1,0 +1,116 @@
+
+package uk.org.siri.siri;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
+
+
+/**
+ * Type for Line Permission.
+ * 
+ * <p>Classe Java pour LinePermissionStructure complex type.
+ * 
+ * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+ * 
+ * <pre>
+ * &lt;complexType name="LinePermissionStructure">
+ *   &lt;complexContent>
+ *     &lt;extension base="{http://www.siri.org.uk/siri}AbstractTopicPermissionStructure">
+ *       &lt;sequence>
+ *         &lt;element name="LineRef" type="{http://www.siri.org.uk/siri}LineRefStructure"/>
+ *         &lt;element name="DirectionRef" type="{http://www.siri.org.uk/siri}DirectionRefStructure" maxOccurs="unbounded" minOccurs="0"/>
+ *       &lt;/sequence>
+ *     &lt;/extension>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
+ * </pre>
+ * 
+ * 
+ */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "LinePermissionStructure", propOrder = {
+    "lineRef",
+    "directionRef"
+})
+public class LinePermissionStructure
+    extends AbstractTopicPermissionStructure
+    implements Serializable
+{
+
+    private final static long serialVersionUID = 1L;
+    @XmlElement(name = "LineRef", required = true)
+    protected LineRefStructure lineRef;
+    @XmlElement(name = "DirectionRef")
+    protected List<DirectionRefStructure> directionRef;
+
+    /**
+     * Obtient la valeur de la propriété lineRef.
+     * 
+     * @return
+     *     possible object is
+     *     {@link LineRefStructure }
+     *     
+     */
+    public LineRefStructure getLineRef() {
+        return lineRef;
+    }
+
+    /**
+     * Définit la valeur de la propriété lineRef.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link LineRefStructure }
+     *     
+     */
+    public void setLineRef(LineRefStructure value) {
+        this.lineRef = value;
+    }
+
+    public boolean isSetLineRef() {
+        return (this.lineRef!= null);
+    }
+
+    /**
+     * Gets the value of the directionRef property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the directionRef property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getDirectionRef().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link DirectionRefStructure }
+     * 
+     * 
+     */
+    public List<DirectionRefStructure> getDirectionRef() {
+        if (directionRef == null) {
+            directionRef = new ArrayList<DirectionRefStructure>();
+        }
+        return this.directionRef;
+    }
+
+    public boolean isSetDirectionRef() {
+        return ((this.directionRef!= null)&&(!this.directionRef.isEmpty()));
+    }
+
+    public void unsetDirectionRef() {
+        this.directionRef = null;
+    }
+
+}

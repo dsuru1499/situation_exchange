@@ -1,0 +1,54 @@
+
+package uk.org.siri.siri;
+
+import javax.xml.bind.annotation.XmlEnum;
+import javax.xml.bind.annotation.XmlEnumValue;
+import javax.xml.bind.annotation.XmlType;
+
+
+/**
+ * <p>Classe Java pour ActionStatusEnumeration.
+ * 
+ * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+ * <p>
+ * <pre>
+ * &lt;simpleType name="ActionStatusEnumeration">
+ *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}NMTOKEN">
+ *     &lt;enumeration value="open"/>
+ *     &lt;enumeration value="published"/>
+ *     &lt;enumeration value="closed"/>
+ *   &lt;/restriction>
+ * &lt;/simpleType>
+ * </pre>
+ * 
+ */
+@XmlType(name = "ActionStatusEnumeration")
+@XmlEnum
+public enum ActionStatusEnumeration {
+
+    @XmlEnumValue("open")
+    OPEN("open"),
+    @XmlEnumValue("published")
+    PUBLISHED("published"),
+    @XmlEnumValue("closed")
+    CLOSED("closed");
+    private final String value;
+
+    ActionStatusEnumeration(String v) {
+        value = v;
+    }
+
+    public String value() {
+        return value;
+    }
+
+    public static ActionStatusEnumeration fromValue(String v) {
+        for (ActionStatusEnumeration c: ActionStatusEnumeration.values()) {
+            if (c.value.equals(v)) {
+                return c;
+            }
+        }
+        throw new IllegalArgumentException(v);
+    }
+
+}
