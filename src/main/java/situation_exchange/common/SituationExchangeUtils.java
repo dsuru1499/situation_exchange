@@ -32,7 +32,7 @@ public class SituationExchangeUtils {
 	private static ResponseBuilder status(Status status) {
 		ResponseBuilder builder = Response.status(status).header("Access-Control-Allow-Origin", "*")
 				.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE")
-				.header("Access-Control-Allow-Headers", "origin, content-type, accept, authorization")
+				.header("Access-Control-Allow-Headers", "origin, content-type, accept, authorization, x-requested-with")
 				.header("Access-Control-Allow-Credentials", "true").allow("OPTIONS");
 
 		return builder;

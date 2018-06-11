@@ -40,6 +40,7 @@ public class LinesDiscoveryRestService extends LinesDiscovery {
 	private AnnotatedLineStructureRepository annotatedLineDAO;
 
 	@OPTIONS
+	@Path("/datatables")
 	public void options(@Suspended final AsyncResponse response) {
 		resume(response, Status.OK, null);
 	}

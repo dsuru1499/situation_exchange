@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.query.Criteria;
 
 import reactor.core.publisher.Mono;
-import situation_exchange.common.SiriException;
 import situation_exchange.common.SiriStructureFactory;
+import situation_exchange.common.errors.OtherError;
+import situation_exchange.common.errors.SiriException;
+import situation_exchange.common.errors.factories.ServiceDeliveryErrorConditionFactory;
 import situation_exchange.configuration.SituationExchangeConfiguration;
 import uk.org.siri.siri.AnnotatedStopPointStructure;
 import uk.org.siri.siri.ObjectFactory;
@@ -48,14 +50,14 @@ public abstract class StopPointsDiscovery {
 		if (t instanceof SiriException) {
 			e = (SiriException) t;
 		} else {
-			e = SiriException.createOtherError(t);
+			e = new OtherError(e);
 		}
 
 		StopPointsDeliveryStructure delivery = factory.createStopPointsDeliveryStructure();
 		delivery.setVersion(configuration.getVersion());
 		delivery.setResponseTimestamp(SiriStructureFactory.createXMLGregorianCalendar(LocalDateTime.now()));
 		delivery.setStatus(Boolean.FALSE);
-		ServiceDeliveryErrorConditionStructure error = SiriStructureFactory.createServiceDeliveryErrorConditionStructure(e);
+		ServiceDeliveryErrorConditionStructure error = ServiceDeliveryErrorConditionFactory.create(e);
 		delivery.setErrorCondition(error);
 		return delivery;
 	}

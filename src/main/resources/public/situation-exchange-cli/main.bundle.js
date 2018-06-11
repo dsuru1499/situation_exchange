@@ -22,9 +22,9 @@ webpackEmptyAsyncContext.id = "../../../../../src/$$_lazy_route_resource lazy re
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ActionTypes; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return AllAction; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return AllSuccessAction; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return AllFailureAction; });
+/* unused harmony export AllAction */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return AllSuccessAction; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return AllFailureAction; });
 var ActionTypes = {
     ALL: 'LINES_DISCOVERY_ALL',
     ALL_SUCCESS: 'LINES_DISCOVERY_ALL_SUCCESS',
@@ -478,9 +478,8 @@ module.exports = "<div class=\"container\">\n  <table datatable [settings]=setti
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngrx_store__ = __webpack_require__("../../../../@ngrx/store/@ngrx/store.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__reducers__ = __webpack_require__("../../../../../src/app/reducers/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__actions_lines_discovery_actions__ = __webpack_require__("../../../../../src/app/actions/lines-discovery-actions.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_datatables_service__ = __webpack_require__("../../../../../src/app/services/datatables.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__directives_datatables_directive__ = __webpack_require__("../../../../../src/app/directives/datatables.directive.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_datatables_service__ = __webpack_require__("../../../../../src/app/services/datatables.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__directives_datatables_directive__ = __webpack_require__("../../../../../src/app/directives/datatables.directive.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -490,7 +489,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-
 
 
 
@@ -537,10 +535,9 @@ var LinesDiscoveryComponent = (function () {
             console.log(result);
             callback(result);
         });
-        this.store.dispatch(new __WEBPACK_IMPORTED_MODULE_3__actions_lines_discovery_actions__["b" /* AllAction */](data));
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_5__directives_datatables_directive__["a" /* DataTablesDirective */]),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_4__directives_datatables_directive__["a" /* DataTablesDirective */]),
         __metadata("design:type", Object)
     ], LinesDiscoveryComponent.prototype, "datatables", void 0);
     LinesDiscoveryComponent = __decorate([
@@ -549,7 +546,7 @@ var LinesDiscoveryComponent = (function () {
             template: __webpack_require__("../../../../../src/app/components/lines-discovery/lines-discovery.component.html"),
             styles: [__webpack_require__("../../../../../src/app/components/lines-discovery/lines-discovery.component.css")],
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__services_datatables_service__["a" /* DataTablesService */], __WEBPACK_IMPORTED_MODULE_1__ngrx_store__["b" /* Store */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__services_datatables_service__["a" /* DataTablesService */], __WEBPACK_IMPORTED_MODULE_1__ngrx_store__["b" /* Store */]])
     ], LinesDiscoveryComponent);
     return LinesDiscoveryComponent;
 }());
@@ -1711,8 +1708,8 @@ var LinesDiscoveryEffects = (function () {
             var url = "http://localhost:8080/services/siri-lite/lines-discovery/datatables";
             return _this.service.all(url, payload)
                 .takeUntil(next$)
-                .map(function (data) { return new __WEBPACK_IMPORTED_MODULE_3__actions_lines_discovery_actions__["d" /* AllSuccessAction */](data); })
-                .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__["a" /* Observable */].of(new __WEBPACK_IMPORTED_MODULE_3__actions_lines_discovery_actions__["c" /* AllFailureAction */](error)); });
+                .map(function (data) { return new __WEBPACK_IMPORTED_MODULE_3__actions_lines_discovery_actions__["c" /* AllSuccessAction */](data); })
+                .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__["a" /* Observable */].of(new __WEBPACK_IMPORTED_MODULE_3__actions_lines_discovery_actions__["b" /* AllFailureAction */](error)); });
         });
     }
     __decorate([
