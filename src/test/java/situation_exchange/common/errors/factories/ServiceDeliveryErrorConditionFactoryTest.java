@@ -1,11 +1,12 @@
 package situation_exchange.common.errors.factories;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertIterableEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.util.Arrays;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import situation_exchange.common.errors.AccessNotAllowedError;
 import situation_exchange.common.errors.AllowedResourceUsageExceededError;
@@ -79,7 +80,7 @@ public class ServiceDeliveryErrorConditionFactoryTest {
 		ServiceDeliveryErrorConditionStructure message = ServiceDeliveryErrorConditionFactory.create(e);
 		InvalidDataReferencesErrorStructure error = message.getInvalidDataReferencesError();
 		assertNotNull(error);
-		assertEquals(Arrays.asList(values), error.getInvalidRef());
+		assertIterableEquals(Arrays.asList(values), error.getInvalidRef());
 	}
 
 	@Test
@@ -105,7 +106,7 @@ public class ServiceDeliveryErrorConditionFactoryTest {
 		ServiceDeliveryErrorConditionStructure message = ServiceDeliveryErrorConditionFactory.create(e);
 		ParametersIgnoredErrorStructure error = message.getParametersIgnoredError();
 		assertNotNull(error);
-		assertEquals(Arrays.asList(values), error.getParameterName());
+		assertIterableEquals(Arrays.asList(values), error.getParameterName());
 	}
 
 	@Test
@@ -143,7 +144,7 @@ public class ServiceDeliveryErrorConditionFactoryTest {
 		ServiceDeliveryErrorConditionStructure message = ServiceDeliveryErrorConditionFactory.create(e);
 		UnknownExtensionsErrorStructure error = message.getUnknownExtensionsError();
 		assertNotNull(error);
-		assertEquals(Arrays.asList(values), error.getExtensionName());
+		assertIterableEquals(Arrays.asList(values), error.getExtensionName());
 	}
 
 	@Test
