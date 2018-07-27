@@ -7,6 +7,7 @@
 java -jar situation_exchange-0.0.1-SNAPSHOT.jar
 
 URL : <http://localhost:8080/situation-exchange-cli/index.html>  
+
 Build : mvn clean install
 
 
